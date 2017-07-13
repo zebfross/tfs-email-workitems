@@ -1,0 +1,23 @@
+{
+  "name": "tfs-email-workitems",
+  "version": "1.0.0",
+  "description": "Email work items to TFS",
+  "main": "index.js",
+  "dependencies": {
+    "vso-node-api": "^6.2.5-preview"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zebfross/tfs-email-workitems.git"
+  },
+  "author": "zebfross",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zebfross/tfs-email-workitems/issues"
+  },
+  "homepage": "https://github.com/zebfross/tfs-email-workitems#readme"
+}
