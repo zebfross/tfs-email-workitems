@@ -1,11 +1,29 @@
-let vsts = require('vso-node-api');
 
-// your collection url
-let collectionUrl = "https://zebfross.visualstudio.com/Car%20Website";
 
-// ideally from config
-let token: string = process.env.tfs_token;
+///<reference path='typescript-node-definitions/node.d.ts'/>
 
-let authHandler = vsts.getPersonalAccessTokenHandler(token); 
-let connect = new vsts.WebApi(collectionUrl, authHandler);    
+let vsts = require('./vsoInterface');
 
+const express = require('express')
+var bodyParser = require('body-parser');
+const app = express()
+
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+
+app.get('/', function (req, res) {
+  res.send('Hello World!')
+})
+
+app.post('/', function(req, res) {
+  console.log(req.body);
+  vsts.createWorkItem(req.body["subject"], req.body["body-plain"]).then(function(cWi) {
+    res.send("created work item: " + cWi.id);
+  }).catch(function(err) {
+    res.status(500).send("Error: " + err);
+  });
+})
+
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!')
+})

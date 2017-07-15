@@ -3,6 +3,14 @@
         "target": "es5",
         "module": "commonjs",
         "sourceMap": true,
-        "outDir": "compiled"
-    }
+        "outDir": "compiled",
+        "types": []
+    },
+    "files": [
+        "index.ts",
+        "vsoInterface.ts"
+    ],
+    "include": [
+        "typescript-node-definitions/node.d.ts"
+    ]
 }
